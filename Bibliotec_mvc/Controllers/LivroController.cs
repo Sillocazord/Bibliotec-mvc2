@@ -121,7 +121,7 @@ namespace Bibliotec_mvc.Controllers
             context.LivroCategoria.AddRange(listalivroCategorias);
             context.SaveChanges();
 
-            return LocalRedirect("/Cadastro");
+            return LocalRedirect("/Livro/Cadastro");
         }
         // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         // public IActionResult Error()

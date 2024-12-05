@@ -23,18 +23,22 @@
             </thead>
 
             <tbody>
-            @* Foreach é um laco de repeticao que vai analisar a lista e repetir ela ate exibir todos os itens da lista *@
+                @* Foreach é um laco de repeticao que vai analisar a lista e repetir ela ate exibir todos os itens da
+                lista *@
                 @foreach (var Livro in ViewBag.livros)
                 {
                     <tr>
                         <td data-cell="titulo">@Livro.Nome</td>
-                        <td data-cell="reservado">@(ViewBag.LivrosComReserva.ContainsKey(Livro.LivroID) ? "Sim" : "Não" )</td>
-                        <td data-cell="data devol.">@(ViewBag.LivrosComReserva.ContainsKey(Livro.LivroID) ? ViewBag.LivrosComReserva[Livro.LivroID].ToString("dd/MM/yyyy") : "Não possui reserva") </td>
-                        <td class="icon" data-cell="editar"><a class="navbar-item"><img style="width: 40px;"
+                        <td data-cell="reservado">@(ViewBag.LivrosComReserva.ContainsKey(Livro.LivroID) ? "Sim" : "Não")
+                        </td>
+                        <td data-cell="data devol.">@(ViewBag.LivrosComReserva.ContainsKey(Livro.LivroID) ?
+                        ViewBag.LivrosComReserva[Livro.LivroID].ToString("dd/MM/yyyy") : "Não possui reserva") </td>
+                        <td class="icon" data-cell="editar"><a class="navbar-item" asp-controller="Livro"
+                                asp-action="Editar" asp-route-id="@Livro.LivroID"><img style="width: 40px;"
                                     src="~/images/editar.svg" alt=""></a></td>
                         <td class="icon" data-cell="detalhes"><a class="navbar-item"><img style="width: 40px;"
                                     src="~/images/detalhes.svg" alt=""></a></td>
-                        <td class="icon" data-cell="excluir"><a class="navbar-item"><img style="width: 40px;"
+                        <td class="icon" data-cell="Excluir"><a class="navbar-item" asp-controller="Livro" asp-action="Excluir" asp-route-id="@Livro.LivroID"><img style="width: 40px;"
                                     src="~/images/excluir.svg" alt=""></a></td>
                     </tr>
                 }
